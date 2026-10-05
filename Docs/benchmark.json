@@ -1,0 +1,538 @@
+﻿{
+    "TimestampUtc":  "2026-10-05T10:56:26.2953731Z",
+    "Scope":  "Native CPU renderer only; excludes STM32, SPI DMA, LCD transfer and application tasks.",
+    "Compiler":  "gcc.exe (Rev13, Built by MSYS2 project) 15.2.0",
+    "CompilerFlags":  "-std=c99 -O2",
+    "Processor":  "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+    "Width":  280,
+    "Height":  240,
+    "BandRows":  16,
+    "FramesPerRun":  1024,
+    "RunsPerPair":  3,
+    "Pairs":  5,
+    "Statistic":  "Median of three native runs per result, then median across pairs; speedups are medians of paired ratios.",
+    "CurrentSourceHashes":  {
+                                "Renderer/soft3d.c":  "2F6AE96BB1AECAA2D9B1DEC2925D34AF154E306684CF093BD652C056DE85BAF6",
+                                "Renderer/soft3d_models.c":  "99E928954B8DFF8253BBC29AC828B28DAE37E26C3DB4E0A6D9B0B0007E552A17",
+                                "Renderer/soft3d.h":  "4F1B49C667792D523C0C4E1ADC6706DE1815A88B265E7B75985DB75757CCE935",
+                                "Tests/benchmark_renderer.c":  "D575C4944837EACE452B2AF9A625652A0DAEC1F615067C15AF24451C7BC3CB1C"
+                            },
+    "CurrentExecutableSha256":  "485CE57AEC034B34CCC771BF1F8719FC2F9375036EE18C7BA66364EB975AF716",
+    "BaselineExecutableSha256":  "1A2F9EE519466BB5F5499DDBF0C9DC314439D18716D81F9E6FA9C898C5DCF0DF",
+    "Current":  [
+                    {
+                        "Model":  "cube",
+                        "Mode":  "texture",
+                        "RasterMicroseconds":  138.412,
+                        "FrameMicroseconds":  133.58
+                    },
+                    {
+                        "Model":  "cube",
+                        "Mode":  "lit",
+                        "RasterMicroseconds":  79.053,
+                        "FrameMicroseconds":  76.072
+                    },
+                    {
+                        "Model":  "cube",
+                        "Mode":  "wire",
+                        "RasterMicroseconds":  87.69,
+                        "FrameMicroseconds":  85.398
+                    },
+                    {
+                        "Model":  "torus",
+                        "Mode":  "texture",
+                        "RasterMicroseconds":  143.327,
+                        "FrameMicroseconds":  153.31
+                    },
+                    {
+                        "Model":  "torus",
+                        "Mode":  "lit",
+                        "RasterMicroseconds":  100.018,
+                        "FrameMicroseconds":  119.255
+                    },
+                    {
+                        "Model":  "torus",
+                        "Mode":  "wire",
+                        "RasterMicroseconds":  114.14,
+                        "FrameMicroseconds":  129.691
+                    }
+                ],
+    "Baseline":  [
+                     {
+                         "Model":  "cube",
+                         "Mode":  "texture",
+                         "RasterMicroseconds":  157.137,
+                         "FrameMicroseconds":  150.702
+                     },
+                     {
+                         "Model":  "cube",
+                         "Mode":  "lit",
+                         "RasterMicroseconds":  84.667,
+                         "FrameMicroseconds":  79.629
+                     },
+                     {
+                         "Model":  "cube",
+                         "Mode":  "wire",
+                         "RasterMicroseconds":  91.545,
+                         "FrameMicroseconds":  86.992
+                     },
+                     {
+                         "Model":  "torus",
+                         "Mode":  "texture",
+                         "RasterMicroseconds":  175.124,
+                         "FrameMicroseconds":  168.546
+                     },
+                     {
+                         "Model":  "torus",
+                         "Mode":  "lit",
+                         "RasterMicroseconds":  119.725,
+                         "FrameMicroseconds":  126.183
+                     },
+                     {
+                         "Model":  "torus",
+                         "Mode":  "wire",
+                         "RasterMicroseconds":  126.657,
+                         "FrameMicroseconds":  137.306
+                     }
+                 ],
+    "Comparison":  [
+                       {
+                           "Model":  "cube",
+                           "Mode":  "texture",
+                           "RasterSpeedup":  1.133,
+                           "FrameSpeedup":  1.13
+                       },
+                       {
+                           "Model":  "cube",
+                           "Mode":  "lit",
+                           "RasterSpeedup":  1.067,
+                           "FrameSpeedup":  1.043
+                       },
+                       {
+                           "Model":  "cube",
+                           "Mode":  "wire",
+                           "RasterSpeedup":  1.02,
+                           "FrameSpeedup":  1.016
+                       },
+                       {
+                           "Model":  "torus",
+                           "Mode":  "texture",
+                           "RasterSpeedup":  1.221,
+                           "FrameSpeedup":  1.097
+                       },
+                       {
+                           "Model":  "torus",
+                           "Mode":  "lit",
+                           "RasterSpeedup":  1.202,
+                           "FrameSpeedup":  1.073
+                       },
+                       {
+                           "Model":  "torus",
+                           "Mode":  "wire",
+                           "RasterSpeedup":  1.116,
+                           "FrameSpeedup":  1.059
+                       }
+                   ],
+    "RawPairedRuns":  [
+                          {
+                              "Pair":  1,
+                              "Order":  "baseline,current",
+                              "Baseline":  [
+                                               {
+                                                   "Model":  "cube",
+                                                   "Mode":  "texture",
+                                                   "RasterMicroseconds":  157.853,
+                                                   "FrameMicroseconds":  150.645
+                                               },
+                                               {
+                                                   "Model":  "cube",
+                                                   "Mode":  "lit",
+                                                   "RasterMicroseconds":  79.218,
+                                                   "FrameMicroseconds":  77.743
+                                               },
+                                               {
+                                                   "Model":  "cube",
+                                                   "Mode":  "wire",
+                                                   "RasterMicroseconds":  91.545,
+                                                   "FrameMicroseconds":  88.588
+                                               },
+                                               {
+                                                   "Model":  "torus",
+                                                   "Mode":  "texture",
+                                                   "RasterMicroseconds":  176.984,
+                                                   "FrameMicroseconds":  168.546
+                                               },
+                                               {
+                                                   "Model":  "torus",
+                                                   "Mode":  "lit",
+                                                   "RasterMicroseconds":  118.965,
+                                                   "FrameMicroseconds":  126.183
+                                               },
+                                               {
+                                                   "Model":  "torus",
+                                                   "Mode":  "wire",
+                                                   "RasterMicroseconds":  126.657,
+                                                   "FrameMicroseconds":  137.136
+                                               }
+                                           ],
+                              "Current":  [
+                                              {
+                                                  "Model":  "cube",
+                                                  "Mode":  "texture",
+                                                  "RasterMicroseconds":  137.646,
+                                                  "FrameMicroseconds":  133.58
+                                              },
+                                              {
+                                                  "Model":  "cube",
+                                                  "Mode":  "lit",
+                                                  "RasterMicroseconds":  78.889,
+                                                  "FrameMicroseconds":  76.072
+                                              },
+                                              {
+                                                  "Model":  "cube",
+                                                  "Mode":  "wire",
+                                                  "RasterMicroseconds":  89.748,
+                                                  "FrameMicroseconds":  87.232
+                                              },
+                                              {
+                                                  "Model":  "torus",
+                                                  "Mode":  "texture",
+                                                  "RasterMicroseconds":  143.192,
+                                                  "FrameMicroseconds":  153.612
+                                              },
+                                              {
+                                                  "Model":  "torus",
+                                                  "Mode":  "lit",
+                                                  "RasterMicroseconds":  101.613,
+                                                  "FrameMicroseconds":  116.731
+                                              },
+                                              {
+                                                  "Model":  "torus",
+                                                  "Mode":  "wire",
+                                                  "RasterMicroseconds":  117.993,
+                                                  "FrameMicroseconds":  129.584
+                                              }
+                                          ]
+                          },
+                          {
+                              "Pair":  2,
+                              "Order":  "current,baseline",
+                              "Baseline":  [
+                                               {
+                                                   "Model":  "cube",
+                                                   "Mode":  "texture",
+                                                   "RasterMicroseconds":  157.137,
+                                                   "FrameMicroseconds":  150.702
+                                               },
+                                               {
+                                                   "Model":  "cube",
+                                                   "Mode":  "lit",
+                                                   "RasterMicroseconds":  86.53,
+                                                   "FrameMicroseconds":  79.623
+                                               },
+                                               {
+                                                   "Model":  "cube",
+                                                   "Mode":  "wire",
+                                                   "RasterMicroseconds":  86.113,
+                                                   "FrameMicroseconds":  83.88
+                                               },
+                                               {
+                                                   "Model":  "torus",
+                                                   "Mode":  "texture",
+                                                   "RasterMicroseconds":  175.124,
+                                                   "FrameMicroseconds":  165.412
+                                               },
+                                               {
+                                                   "Model":  "torus",
+                                                   "Mode":  "lit",
+                                                   "RasterMicroseconds":  119.725,
+                                                   "FrameMicroseconds":  127.932
+                                               },
+                                               {
+                                                   "Model":  "torus",
+                                                   "Mode":  "wire",
+                                                   "RasterMicroseconds":  131.198,
+                                                   "FrameMicroseconds":  137.306
+                                               }
+                                           ],
+                              "Current":  [
+                                              {
+                                                  "Model":  "cube",
+                                                  "Mode":  "texture",
+                                                  "RasterMicroseconds":  140.244,
+                                                  "FrameMicroseconds":  133.353
+                                              },
+                                              {
+                                                  "Model":  "cube",
+                                                  "Mode":  "lit",
+                                                  "RasterMicroseconds":  79.217,
+                                                  "FrameMicroseconds":  76.86
+                                              },
+                                              {
+                                                  "Model":  "cube",
+                                                  "Mode":  "wire",
+                                                  "RasterMicroseconds":  89.231,
+                                                  "FrameMicroseconds":  85.398
+                                              },
+                                              {
+                                                  "Model":  "torus",
+                                                  "Mode":  "texture",
+                                                  "RasterMicroseconds":  143.395,
+                                                  "FrameMicroseconds":  155.314
+                                              },
+                                              {
+                                                  "Model":  "torus",
+                                                  "Mode":  "lit",
+                                                  "RasterMicroseconds":  102.268,
+                                                  "FrameMicroseconds":  119.255
+                                              },
+                                              {
+                                                  "Model":  "torus",
+                                                  "Mode":  "wire",
+                                                  "RasterMicroseconds":  114.14,
+                                                  "FrameMicroseconds":  125.64
+                                              }
+                                          ]
+                          },
+                          {
+                              "Pair":  3,
+                              "Order":  "baseline,current",
+                              "Baseline":  [
+                                               {
+                                                   "Model":  "cube",
+                                                   "Mode":  "texture",
+                                                   "RasterMicroseconds":  156.666,
+                                                   "FrameMicroseconds":  154.396
+                                               },
+                                               {
+                                                   "Model":  "cube",
+                                                   "Mode":  "lit",
+                                                   "RasterMicroseconds":  85.157,
+                                                   "FrameMicroseconds":  82.568
+                                               },
+                                               {
+                                                   "Model":  "cube",
+                                                   "Mode":  "wire",
+                                                   "RasterMicroseconds":  93.232,
+                                                   "FrameMicroseconds":  91.497
+                                               },
+                                               {
+                                                   "Model":  "torus",
+                                                   "Mode":  "texture",
+                                                   "RasterMicroseconds":  183.19,
+                                                   "FrameMicroseconds":  174.462
+                                               },
+                                               {
+                                                   "Model":  "torus",
+                                                   "Mode":  "lit",
+                                                   "RasterMicroseconds":  121.086,
+                                                   "FrameMicroseconds":  125.525
+                                               },
+                                               {
+                                                   "Model":  "torus",
+                                                   "Mode":  "wire",
+                                                   "RasterMicroseconds":  128.851,
+                                                   "FrameMicroseconds":  138.607
+                                               }
+                                           ],
+                              "Current":  [
+                                              {
+                                                  "Model":  "cube",
+                                                  "Mode":  "texture",
+                                                  "RasterMicroseconds":  147.959,
+                                                  "FrameMicroseconds":  133.146
+                                              },
+                                              {
+                                                  "Model":  "cube",
+                                                  "Mode":  "lit",
+                                                  "RasterMicroseconds":  78.466,
+                                                  "FrameMicroseconds":  75.353
+                                              },
+                                              {
+                                                  "Model":  "cube",
+                                                  "Mode":  "wire",
+                                                  "RasterMicroseconds":  87.503,
+                                                  "FrameMicroseconds":  88.928
+                                              },
+                                              {
+                                                  "Model":  "torus",
+                                                  "Mode":  "texture",
+                                                  "RasterMicroseconds":  142.761,
+                                                  "FrameMicroseconds":  152.912
+                                              },
+                                              {
+                                                  "Model":  "torus",
+                                                  "Mode":  "lit",
+                                                  "RasterMicroseconds":  97.736,
+                                                  "FrameMicroseconds":  128.207
+                                              },
+                                              {
+                                                  "Model":  "torus",
+                                                  "Mode":  "wire",
+                                                  "RasterMicroseconds":  114.615,
+                                                  "FrameMicroseconds":  130.811
+                                              }
+                                          ]
+                          },
+                          {
+                              "Pair":  4,
+                              "Order":  "current,baseline",
+                              "Baseline":  [
+                                               {
+                                                   "Model":  "cube",
+                                                   "Mode":  "texture",
+                                                   "RasterMicroseconds":  156.836,
+                                                   "FrameMicroseconds":  149.377
+                                               },
+                                               {
+                                                   "Model":  "cube",
+                                                   "Mode":  "lit",
+                                                   "RasterMicroseconds":  84.667,
+                                                   "FrameMicroseconds":  79.629
+                                               },
+                                               {
+                                                   "Model":  "cube",
+                                                   "Mode":  "wire",
+                                                   "RasterMicroseconds":  89.144,
+                                                   "FrameMicroseconds":  83.554
+                                               },
+                                               {
+                                                   "Model":  "torus",
+                                                   "Mode":  "texture",
+                                                   "RasterMicroseconds":  170.718,
+                                                   "FrameMicroseconds":  167.795
+                                               },
+                                               {
+                                                   "Model":  "torus",
+                                                   "Mode":  "lit",
+                                                   "RasterMicroseconds":  121.312,
+                                                   "FrameMicroseconds":  129.172
+                                               },
+                                               {
+                                                   "Model":  "torus",
+                                                   "Mode":  "wire",
+                                                   "RasterMicroseconds":  126.481,
+                                                   "FrameMicroseconds":  137.312
+                                               }
+                                           ],
+                              "Current":  [
+                                              {
+                                                  "Model":  "cube",
+                                                  "Mode":  "texture",
+                                                  "RasterMicroseconds":  138.412,
+                                                  "FrameMicroseconds":  133.602
+                                              },
+                                              {
+                                                  "Model":  "cube",
+                                                  "Mode":  "lit",
+                                                  "RasterMicroseconds":  79.34,
+                                                  "FrameMicroseconds":  76.363
+                                              },
+                                              {
+                                                  "Model":  "cube",
+                                                  "Mode":  "wire",
+                                                  "RasterMicroseconds":  87.69,
+                                                  "FrameMicroseconds":  85.369
+                                              },
+                                              {
+                                                  "Model":  "torus",
+                                                  "Mode":  "texture",
+                                                  "RasterMicroseconds":  143.327,
+                                                  "FrameMicroseconds":  153.31
+                                              },
+                                              {
+                                                  "Model":  "torus",
+                                                  "Mode":  "lit",
+                                                  "RasterMicroseconds":  100.018,
+                                                  "FrameMicroseconds":  120.338
+                                              },
+                                              {
+                                                  "Model":  "torus",
+                                                  "Mode":  "wire",
+                                                  "RasterMicroseconds":  113.319,
+                                                  "FrameMicroseconds":  129.691
+                                              }
+                                          ]
+                          },
+                          {
+                              "Pair":  5,
+                              "Order":  "baseline,current",
+                              "Baseline":  [
+                                               {
+                                                   "Model":  "cube",
+                                                   "Mode":  "texture",
+                                                   "RasterMicroseconds":  157.913,
+                                                   "FrameMicroseconds":  152.937
+                                               },
+                                               {
+                                                   "Model":  "cube",
+                                                   "Mode":  "lit",
+                                                   "RasterMicroseconds":  81.722,
+                                                   "FrameMicroseconds":  80.165
+                                               },
+                                               {
+                                                   "Model":  "cube",
+                                                   "Mode":  "wire",
+                                                   "RasterMicroseconds":  91.546,
+                                                   "FrameMicroseconds":  86.992
+                                               },
+                                               {
+                                                   "Model":  "torus",
+                                                   "Mode":  "texture",
+                                                   "RasterMicroseconds":  174.385,
+                                                   "FrameMicroseconds":  171.047
+                                               },
+                                               {
+                                                   "Model":  "torus",
+                                                   "Mode":  "lit",
+                                                   "RasterMicroseconds":  119.372,
+                                                   "FrameMicroseconds":  123.201
+                                               },
+                                               {
+                                                   "Model":  "torus",
+                                                   "Mode":  "wire",
+                                                   "RasterMicroseconds":  125.721,
+                                                   "FrameMicroseconds":  134.537
+                                               }
+                                           ],
+                              "Current":  [
+                                              {
+                                                  "Model":  "cube",
+                                                  "Mode":  "texture",
+                                                  "RasterMicroseconds":  133.694,
+                                                  "FrameMicroseconds":  134.05
+                                              },
+                                              {
+                                                  "Model":  "cube",
+                                                  "Mode":  "lit",
+                                                  "RasterMicroseconds":  79.053,
+                                                  "FrameMicroseconds":  75.43
+                                              },
+                                              {
+                                                  "Model":  "cube",
+                                                  "Mode":  "wire",
+                                                  "RasterMicroseconds":  84.915,
+                                                  "FrameMicroseconds":  83.35
+                                              },
+                                              {
+                                                  "Model":  "torus",
+                                                  "Mode":  "texture",
+                                                  "RasterMicroseconds":  144.755,
+                                                  "FrameMicroseconds":  151.729
+                                              },
+                                              {
+                                                  "Model":  "torus",
+                                                  "Mode":  "lit",
+                                                  "RasterMicroseconds":  99.319,
+                                                  "FrameMicroseconds":  113.469
+                                              },
+                                              {
+                                                  "Model":  "torus",
+                                                  "Mode":  "wire",
+                                                  "RasterMicroseconds":  113.651,
+                                                  "FrameMicroseconds":  129.765
+                                              }
+                                          ]
+                          }
+                      ]
+}

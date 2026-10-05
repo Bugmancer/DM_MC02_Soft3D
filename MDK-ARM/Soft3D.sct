@@ -1,0 +1,20 @@
+; DMA1 cannot reach DTCM. These two 8960-byte bands live in AXI SRAM.
+LR_IROM1 0x08000000 0x00100000 {
+  ER_IROM1 0x08000000 0x00100000 {
+    *.o (RESET, +First)
+    *(InRoot$$Sections)
+    .ANY (+RO)
+    .ANY (+XO)
+  }
+  RW_LCD_DMA 0x24000000 UNINIT 0x00004600 {
+    *.o (LCD_DMA)
+  }
+  RW_IRAM1 0x20000000 0x00020000 {
+    ; CPU-only geometry and depth avoid contending with LCD DMA in AXI SRAM.
+    soft3d_app.o (.bss)
+    .ANY (+RW +ZI)
+  }
+  RW_IRAM2 0x24004600 0x0004BA00 {
+    .ANY (+RW +ZI)
+  }
+}

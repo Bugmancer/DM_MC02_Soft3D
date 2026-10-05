@@ -1,0 +1,2388 @@
+{
+  "schema_version": 1,
+  "timestamp_utc": "2026-10-05T14:04:30.3533004Z",
+  "scope": "Native host CPU only. Not STM32 or LCD/SPI timing. Geometry includes begin-frame and scene submission; raster includes all 16-row bands. Pose creation, oracle hashing, warmup and level generation are outside timed phases.",
+  "statistic": "Per-run arithmetic mean over frames; median across alternating pairs. Speedup is median of paired reference/current ratios.",
+  "oracle": "Exact FNV-1a-64 over every RGB565 pixel in little-byte-first order at eight deterministic poses per workload. A mismatch blocks timing comparison.",
+  "counter_note": "Only common prepared-triangle statistics are recorded. Newly added core-specific counters are not compared against the legacy reference.",
+  "frames_per_run": 128,
+  "pairs": 3,
+  "compiler": "gcc.exe (Rev13, Built by MSYS2 project) 15.2.0",
+  "compiler_path": "C:\\msys64\\ucrt64\\bin\\gcc.exe",
+  "compiler_flags": [
+    "-std=c99",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-Wconversion",
+    "-pedantic",
+    "-IRenderer",
+    "-IGame",
+    "-lm"
+  ],
+  "host": {
+    "machine": "DESKTOP-NPSQ0EA",
+    "os": "Microsoft Windows NT 10.0.19045.0",
+    "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+    "logical_processors": 16,
+    "process_64_bit": true,
+    "powershell": "7.6.5"
+  },
+  "source_sha256": {
+    "Tests/reference/soft3d_linear_reference.c": "2F6AE96BB1AECAA2D9B1DEC2925D34AF154E306684CF093BD652C056DE85BAF6",
+    "Renderer/soft3d.c": "8AFCED31F52C0606A19B517D6EE0CEE06A8C0C5397E8886DB70F0A55CE98B3AA",
+    "Renderer/soft3d.h": "3887CBF833562BB3284C028BBE35BD2C390B0CA2468F14081D6BCABF9A29902D",
+    "Renderer/soft3d_models.c": "99E928954B8DFF8253BBC29AC828B28DAE37E26C3DB4E0A6D9B0B0007E552A17",
+    "Renderer/soft3d_models.h": "F3E2CDD02C9B902B5E362A94216425BC9CD13485A282538C248779958062FFC0",
+    "Game/soft3d_maze.c": "EC81BC4F325F4D8C9C5C0304EE6A51F246FF975E8EFF662D41237CD358DC33DC",
+    "Game/soft3d_maze.h": "2A673AFBFE93EF11B15EA2462D17FEF9CEC66201F1311A733D72327A04E314ED",
+    "Game/soft3d_maze_scene.c": "DCA92E383302F9C726D7C6C12E1C90599BC494D53E5FC4DFF8B7CC34818B85E2",
+    "Game/soft3d_maze_scene.h": "D7E40E16FBC7A157D91C667E17AD6DA2AF13923C67429A92A81986279EEB5039",
+    "ThirdParty/cute_c2/cute_c2.h": "4CDBBA9019C9EB11C097FB64124608E8E16C0FCBCDB3579466AF849A2EA14A5B",
+    "ThirdParty/cute_c2/cute_c2_port.h": "0D05F63B9A031F8F278EA2A428BC18552CD33C79EE25E5150426C7E0AD14A067",
+    "Tests/benchmark_pipeline.c": "00870D968F7F6A4ABA1B19BA5198CCF2E5C31AE53C8BA496DE8A870E1CDC4341",
+    "Tools/benchmark-pipeline.ps1": "A35EB56A2BBAB1649481B35B62C3858BBBC0C0249D46F19B4B3DCF1384138A09"
+  },
+  "executable_sha256": {
+    "reference": "F60888DC96D1C3B38C0E374DADAC738F92E2361AA8F49431771F682A1FAE4EF3",
+    "current": "BE5823261D2DDFC25835E3BADF78F30B248209F0727CD28AFF2EB05A184D3B39"
+  },
+  "reference_oracle": {
+    "schema_version": 1,
+    "frames": 128,
+    "width": 280,
+    "height": 240,
+    "band_rows": 16,
+    "oracle_only": true,
+    "oracle_frames": 8,
+    "warmup_frames": 8,
+    "clock": "QueryPerformanceCounter",
+    "context_bytes": 73472,
+    "workloads": [
+      {
+        "id": "cube.texture.fixed",
+        "level": 0,
+        "seed": 0,
+        "walls": 0,
+        "oracle_hash": "a931967ba9fb3aa5",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "cube.texture.changing",
+        "level": 0,
+        "seed": 0,
+        "walls": 0,
+        "oracle_hash": "90e4f87cbd16193d",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "cube.lit.fixed",
+        "level": 0,
+        "seed": 0,
+        "walls": 0,
+        "oracle_hash": "a9329d366370add5",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "cube.lit.changing",
+        "level": 0,
+        "seed": 0,
+        "walls": 0,
+        "oracle_hash": "079063d7f8252c96",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "cube.wire.fixed",
+        "level": 0,
+        "seed": 0,
+        "walls": 0,
+        "oracle_hash": "cc0ecd3ee6e58d45",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "cube.wire.changing",
+        "level": 0,
+        "seed": 0,
+        "walls": 0,
+        "oracle_hash": "7e84b9b6ebcf468f",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "torus.texture.fixed",
+        "level": 0,
+        "seed": 0,
+        "walls": 0,
+        "oracle_hash": "4e39e0d9491fcfa5",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "torus.texture.changing",
+        "level": 0,
+        "seed": 0,
+        "walls": 0,
+        "oracle_hash": "27f1aa478298ac15",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "torus.lit.fixed",
+        "level": 0,
+        "seed": 0,
+        "walls": 0,
+        "oracle_hash": "ebc65d01a2eb7695",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "torus.lit.changing",
+        "level": 0,
+        "seed": 0,
+        "walls": 0,
+        "oracle_hash": "dbf34be231da56d3",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "torus.wire.fixed",
+        "level": 0,
+        "seed": 0,
+        "walls": 0,
+        "oracle_hash": "6f6fbd9f99f8ecc5",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "torus.wire.changing",
+        "level": 0,
+        "seed": 0,
+        "walls": 0,
+        "oracle_hash": "3b4ca2e4f05c7442",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "maze1.mixed.fixed",
+        "level": 1,
+        "seed": 0,
+        "walls": 18,
+        "oracle_hash": "8b3c491108578935",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "maze1.mixed.changing",
+        "level": 1,
+        "seed": 0,
+        "walls": 18,
+        "oracle_hash": "add2a4c3da2c273e",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "maze2.mixed.fixed",
+        "level": 2,
+        "seed": 127880910,
+        "walls": 17,
+        "oracle_hash": "aafbe8c759e46c05",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "maze2.mixed.changing",
+        "level": 2,
+        "seed": 127880910,
+        "walls": 17,
+        "oracle_hash": "6fd0a0534760a2cc",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "maze17.mixed.fixed",
+        "level": 17,
+        "seed": 1562426607,
+        "walls": 18,
+        "oracle_hash": "1a4ce2cb6ad1e325",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "maze17.mixed.changing",
+        "level": 17,
+        "seed": 1562426607,
+        "walls": 18,
+        "oracle_hash": "36de93eda33289f1",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "maze9999.mixed.fixed",
+        "level": 9999,
+        "seed": 3905316334,
+        "walls": 16,
+        "oracle_hash": "af059f8c9c9bcce5",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "maze9999.mixed.changing",
+        "level": 9999,
+        "seed": 3905316334,
+        "walls": 16,
+        "oracle_hash": "4e3f6fd751d5b20f",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      }
+    ]
+  },
+  "current_oracle": {
+    "schema_version": 1,
+    "frames": 128,
+    "width": 280,
+    "height": 240,
+    "band_rows": 16,
+    "oracle_only": true,
+    "oracle_frames": 8,
+    "warmup_frames": 8,
+    "clock": "QueryPerformanceCounter",
+    "context_bytes": 73472,
+    "workloads": [
+      {
+        "id": "cube.texture.fixed",
+        "level": 0,
+        "seed": 0,
+        "walls": 0,
+        "oracle_hash": "a931967ba9fb3aa5",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "cube.texture.changing",
+        "level": 0,
+        "seed": 0,
+        "walls": 0,
+        "oracle_hash": "90e4f87cbd16193d",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "cube.lit.fixed",
+        "level": 0,
+        "seed": 0,
+        "walls": 0,
+        "oracle_hash": "a9329d366370add5",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "cube.lit.changing",
+        "level": 0,
+        "seed": 0,
+        "walls": 0,
+        "oracle_hash": "079063d7f8252c96",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "cube.wire.fixed",
+        "level": 0,
+        "seed": 0,
+        "walls": 0,
+        "oracle_hash": "cc0ecd3ee6e58d45",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "cube.wire.changing",
+        "level": 0,
+        "seed": 0,
+        "walls": 0,
+        "oracle_hash": "7e84b9b6ebcf468f",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "torus.texture.fixed",
+        "level": 0,
+        "seed": 0,
+        "walls": 0,
+        "oracle_hash": "4e39e0d9491fcfa5",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "torus.texture.changing",
+        "level": 0,
+        "seed": 0,
+        "walls": 0,
+        "oracle_hash": "27f1aa478298ac15",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "torus.lit.fixed",
+        "level": 0,
+        "seed": 0,
+        "walls": 0,
+        "oracle_hash": "ebc65d01a2eb7695",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "torus.lit.changing",
+        "level": 0,
+        "seed": 0,
+        "walls": 0,
+        "oracle_hash": "dbf34be231da56d3",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "torus.wire.fixed",
+        "level": 0,
+        "seed": 0,
+        "walls": 0,
+        "oracle_hash": "6f6fbd9f99f8ecc5",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "torus.wire.changing",
+        "level": 0,
+        "seed": 0,
+        "walls": 0,
+        "oracle_hash": "3b4ca2e4f05c7442",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "maze1.mixed.fixed",
+        "level": 1,
+        "seed": 0,
+        "walls": 18,
+        "oracle_hash": "8b3c491108578935",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "maze1.mixed.changing",
+        "level": 1,
+        "seed": 0,
+        "walls": 18,
+        "oracle_hash": "add2a4c3da2c273e",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "maze2.mixed.fixed",
+        "level": 2,
+        "seed": 127880910,
+        "walls": 17,
+        "oracle_hash": "aafbe8c759e46c05",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "maze2.mixed.changing",
+        "level": 2,
+        "seed": 127880910,
+        "walls": 17,
+        "oracle_hash": "6fd0a0534760a2cc",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "maze17.mixed.fixed",
+        "level": 17,
+        "seed": 1562426607,
+        "walls": 18,
+        "oracle_hash": "1a4ce2cb6ad1e325",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "maze17.mixed.changing",
+        "level": 17,
+        "seed": 1562426607,
+        "walls": 18,
+        "oracle_hash": "36de93eda33289f1",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "maze9999.mixed.fixed",
+        "level": 9999,
+        "seed": 3905316334,
+        "walls": 16,
+        "oracle_hash": "af059f8c9c9bcce5",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      },
+      {
+        "id": "maze9999.mixed.changing",
+        "level": 9999,
+        "seed": 3905316334,
+        "walls": 16,
+        "oracle_hash": "4e3f6fd751d5b20f",
+        "geometry_us": null,
+        "raster_us": null,
+        "total_us": null,
+        "prepared_triangles_mean": null
+      }
+    ]
+  },
+  "comparison": [
+    {
+      "id": "cube.texture.fixed",
+      "level": 0,
+      "seed": 0,
+      "walls": 0,
+      "oracle_hash": "a931967ba9fb3aa5",
+      "geometry_us": {
+        "reference_median": 0.907812,
+        "current_median": 0.606251,
+        "paired_speedup_median": 1.6005543155155453
+      },
+      "raster_us": {
+        "reference_median": 204.82422,
+        "current_median": 153.010936,
+        "paired_speedup_median": 1.3727589645506275
+      },
+      "total_us": {
+        "reference_median": 205.732032,
+        "current_median": 153.617187,
+        "paired_speedup_median": 1.3736216164043722
+      }
+    },
+    {
+      "id": "cube.texture.changing",
+      "level": 0,
+      "seed": 0,
+      "walls": 0,
+      "oracle_hash": "90e4f87cbd16193d",
+      "geometry_us": {
+        "reference_median": 1.214843,
+        "current_median": 0.760155,
+        "paired_speedup_median": 2.014250800830343
+      },
+      "raster_us": {
+        "reference_median": 159.721093,
+        "current_median": 143.458595,
+        "paired_speedup_median": 1.1133602207661382
+      },
+      "total_us": {
+        "reference_median": 160.459374,
+        "current_median": 144.21875,
+        "paired_speedup_median": 1.112611043986999
+      }
+    },
+    {
+      "id": "cube.lit.fixed",
+      "level": 0,
+      "seed": 0,
+      "walls": 0,
+      "oracle_hash": "a9329d366370add5",
+      "geometry_us": {
+        "reference_median": 0.819534,
+        "current_median": 0.555469,
+        "paired_speedup_median": 1.4753910659280716
+      },
+      "raster_us": {
+        "reference_median": 98.013279,
+        "current_median": 84.087499,
+        "paired_speedup_median": 1.1718710359434574
+      },
+      "total_us": {
+        "reference_median": 98.832813,
+        "current_median": 84.616406,
+        "paired_speedup_median": 1.1738735119887167
+      }
+    },
+    {
+      "id": "cube.lit.changing",
+      "level": 0,
+      "seed": 0,
+      "walls": 0,
+      "oracle_hash": "079063d7f8252c96",
+      "geometry_us": {
+        "reference_median": 0.682034,
+        "current_median": 0.654687,
+        "paired_speedup_median": 1.1413827246953376
+      },
+      "raster_us": {
+        "reference_median": 90.121091,
+        "current_median": 81.0375,
+        "paired_speedup_median": 1.1186342496083408
+      },
+      "total_us": {
+        "reference_median": 90.803124,
+        "current_median": 81.692187,
+        "paired_speedup_median": 1.11940196896826
+      }
+    },
+    {
+      "id": "cube.wire.fixed",
+      "level": 0,
+      "seed": 0,
+      "walls": 0,
+      "oracle_hash": "cc0ecd3ee6e58d45",
+      "geometry_us": {
+        "reference_median": 0.671877,
+        "current_median": 0.707031,
+        "paired_speedup_median": 0.9481819657208983
+      },
+      "raster_us": {
+        "reference_median": 110.485937,
+        "current_median": 96.386719,
+        "paired_speedup_median": 1.1481388306248288
+      },
+      "total_us": {
+        "reference_median": 111.157814,
+        "current_median": 96.998438,
+        "paired_speedup_median": 1.1466772068964604
+      }
+    },
+    {
+      "id": "cube.wire.changing",
+      "level": 0,
+      "seed": 0,
+      "walls": 0,
+      "oracle_hash": "7e84b9b6ebcf468f",
+      "geometry_us": {
+        "reference_median": 0.594533,
+        "current_median": 0.698437,
+        "paired_speedup_median": 0.8512335400329593
+      },
+      "raster_us": {
+        "reference_median": 95.222656,
+        "current_median": 92.978125,
+        "paired_speedup_median": 1.0213341770349431
+      },
+      "total_us": {
+        "reference_median": 95.814844,
+        "current_median": 93.676562,
+        "paired_speedup_median": 1.0082705044687086
+      }
+    },
+    {
+      "id": "torus.texture.fixed",
+      "level": 0,
+      "seed": 0,
+      "walls": 0,
+      "oracle_hash": "4e39e0d9491fcfa5",
+      "geometry_us": {
+        "reference_median": 5.147657,
+        "current_median": 5.418748,
+        "paired_speedup_median": 0.9499716539687765
+      },
+      "raster_us": {
+        "reference_median": 145.94766,
+        "current_median": 148.984373,
+        "paired_speedup_median": 0.9602709012626633
+      },
+      "total_us": {
+        "reference_median": 151.089062,
+        "current_median": 154.219531,
+        "paired_speedup_median": 0.9599090208619556
+      }
+    },
+    {
+      "id": "torus.texture.changing",
+      "level": 0,
+      "seed": 0,
+      "walls": 0,
+      "oracle_hash": "27f1aa478298ac15",
+      "geometry_us": {
+        "reference_median": 4.977345,
+        "current_median": 5.105466,
+        "paired_speedup_median": 0.9976518622746569
+      },
+      "raster_us": {
+        "reference_median": 151.128123,
+        "current_median": 154.171096,
+        "paired_speedup_median": 0.9885782115519541
+      },
+      "total_us": {
+        "reference_median": 156.105468,
+        "current_median": 159.276562,
+        "paired_speedup_median": 0.9888649660081498
+      }
+    },
+    {
+      "id": "torus.lit.fixed",
+      "level": 0,
+      "seed": 0,
+      "walls": 0,
+      "oracle_hash": "ebc65d01a2eb7695",
+      "geometry_us": {
+        "reference_median": 5.170309,
+        "current_median": 5.510939,
+        "paired_speedup_median": 0.9381902067869015
+      },
+      "raster_us": {
+        "reference_median": 105.333593,
+        "current_median": 118.655469,
+        "paired_speedup_median": 0.886156555593066
+      },
+      "total_us": {
+        "reference_median": 110.52422,
+        "current_median": 124.166408,
+        "paired_speedup_median": 0.8774200265179612
+      }
+    },
+    {
+      "id": "torus.lit.changing",
+      "level": 0,
+      "seed": 0,
+      "walls": 0,
+      "oracle_hash": "dbf34be231da56d3",
+      "geometry_us": {
+        "reference_median": 4.746871,
+        "current_median": 5.865626,
+        "paired_speedup_median": 0.7826315554384136
+      },
+      "raster_us": {
+        "reference_median": 116.237504,
+        "current_median": 126.443749,
+        "paired_speedup_median": 0.8787628085908779
+      },
+      "total_us": {
+        "reference_median": 120.984375,
+        "current_median": 132.309375,
+        "paired_speedup_median": 0.8745010472613903
+      }
+    },
+    {
+      "id": "torus.wire.fixed",
+      "level": 0,
+      "seed": 0,
+      "walls": 0,
+      "oracle_hash": "6f6fbd9f99f8ecc5",
+      "geometry_us": {
+        "reference_median": 5.699998,
+        "current_median": 6.825004,
+        "paired_speedup_median": 0.8525631633329446
+      },
+      "raster_us": {
+        "reference_median": 117.222651,
+        "current_median": 136.251561,
+        "paired_speedup_median": 0.8603398752987497
+      },
+      "total_us": {
+        "reference_median": 122.728906,
+        "current_median": 143.338282,
+        "paired_speedup_median": 0.8562186199496936
+      }
+    },
+    {
+      "id": "torus.wire.changing",
+      "level": 0,
+      "seed": 0,
+      "walls": 0,
+      "oracle_hash": "3b4ca2e4f05c7442",
+      "geometry_us": {
+        "reference_median": 5.253122,
+        "current_median": 6.572656,
+        "paired_speedup_median": 0.776179827454837
+      },
+      "raster_us": {
+        "reference_median": 124.80547,
+        "current_median": 148.985939,
+        "paired_speedup_median": 0.8410452009165778
+      },
+      "total_us": {
+        "reference_median": 130.096876,
+        "current_median": 156.029688,
+        "paired_speedup_median": 0.8367448058987338
+      }
+    },
+    {
+      "id": "maze1.mixed.fixed",
+      "level": 1,
+      "seed": 0,
+      "walls": 18,
+      "oracle_hash": "8b3c491108578935",
+      "geometry_us": {
+        "reference_median": 18.928124,
+        "current_median": 20.388281,
+        "paired_speedup_median": 0.9568150448779865
+      },
+      "raster_us": {
+        "reference_median": 481.926563,
+        "current_median": 494.640625,
+        "paired_speedup_median": 0.9915291782384044
+      },
+      "total_us": {
+        "reference_median": 500.854687,
+        "current_median": 515.028907,
+        "paired_speedup_median": 0.991201094145944
+      }
+    },
+    {
+      "id": "maze1.mixed.changing",
+      "level": 1,
+      "seed": 0,
+      "walls": 18,
+      "oracle_hash": "add2a4c3da2c273e",
+      "geometry_us": {
+        "reference_median": 18.825,
+        "current_median": 19.160153,
+        "paired_speedup_median": 1.0011634236949136
+      },
+      "raster_us": {
+        "reference_median": 499.004686,
+        "current_median": 486.458594,
+        "paired_speedup_median": 1.0257906678075872
+      },
+      "total_us": {
+        "reference_median": 517.829686,
+        "current_median": 505.261718,
+        "paired_speedup_median": 1.024874174219548
+      }
+    },
+    {
+      "id": "maze2.mixed.fixed",
+      "level": 2,
+      "seed": 127880910,
+      "walls": 17,
+      "oracle_hash": "aafbe8c759e46c05",
+      "geometry_us": {
+        "reference_median": 19.546877,
+        "current_median": 22.322656,
+        "paired_speedup_median": 0.9289188974645312
+      },
+      "raster_us": {
+        "reference_median": 506.612498,
+        "current_median": 544.462503,
+        "paired_speedup_median": 0.9304818884836961
+      },
+      "total_us": {
+        "reference_median": 526.159375,
+        "current_median": 566.78828,
+        "paired_speedup_median": 0.9283173163001888
+      }
+    },
+    {
+      "id": "maze2.mixed.changing",
+      "level": 2,
+      "seed": 127880910,
+      "walls": 17,
+      "oracle_hash": "6fd0a0534760a2cc",
+      "geometry_us": {
+        "reference_median": 18.560934,
+        "current_median": 19.633591,
+        "paired_speedup_median": 0.9241177021564726
+      },
+      "raster_us": {
+        "reference_median": 518.359378,
+        "current_median": 515.578129,
+        "paired_speedup_median": 0.9730566344485105
+      },
+      "total_us": {
+        "reference_median": 536.920311,
+        "current_median": 535.21172,
+        "paired_speedup_median": 0.9712613692390741
+      }
+    },
+    {
+      "id": "maze17.mixed.fixed",
+      "level": 17,
+      "seed": 1562426607,
+      "walls": 18,
+      "oracle_hash": "1a4ce2cb6ad1e325",
+      "geometry_us": {
+        "reference_median": 20.521093,
+        "current_median": 20.317189,
+        "paired_speedup_median": 1.0100360340202574
+      },
+      "raster_us": {
+        "reference_median": 524.628907,
+        "current_median": 505.208593,
+        "paired_speedup_median": 1.0384401893971744
+      },
+      "total_us": {
+        "reference_median": 545.15,
+        "current_median": 525.525782,
+        "paired_speedup_median": 1.0373420651700775
+      }
+    },
+    {
+      "id": "maze17.mixed.changing",
+      "level": 17,
+      "seed": 1562426607,
+      "walls": 18,
+      "oracle_hash": "36de93eda33289f1",
+      "geometry_us": {
+        "reference_median": 18.266404,
+        "current_median": 19.185938,
+        "paired_speedup_median": 0.9380647430425345
+      },
+      "raster_us": {
+        "reference_median": 499.253129,
+        "current_median": 503.351563,
+        "paired_speedup_median": 0.9918577107904998
+      },
+      "total_us": {
+        "reference_median": 517.290625,
+        "current_median": 522.537501,
+        "paired_speedup_median": 0.9898826017465107
+      }
+    },
+    {
+      "id": "maze9999.mixed.fixed",
+      "level": 9999,
+      "seed": 3905316334,
+      "walls": 16,
+      "oracle_hash": "af059f8c9c9bcce5",
+      "geometry_us": {
+        "reference_median": 20.138281,
+        "current_median": 19.579688,
+        "paired_speedup_median": 0.9135344751152317
+      },
+      "raster_us": {
+        "reference_median": 506.935158,
+        "current_median": 497.410938,
+        "paired_speedup_median": 0.9329559596455839
+      },
+      "total_us": {
+        "reference_median": 527.073439,
+        "current_median": 516.990626,
+        "paired_speedup_median": 0.9322204209559498
+      }
+    },
+    {
+      "id": "maze9999.mixed.changing",
+      "level": 9999,
+      "seed": 3905316334,
+      "walls": 16,
+      "oracle_hash": "4e3f6fd751d5b20f",
+      "geometry_us": {
+        "reference_median": 18.799221,
+        "current_median": 17.639841,
+        "paired_speedup_median": 1.0133224323174839
+      },
+      "raster_us": {
+        "reference_median": 499.28906,
+        "current_median": 479.70469,
+        "paired_speedup_median": 1.0227184523189852
+      },
+      "total_us": {
+        "reference_median": 518.088281,
+        "current_median": 497.344532,
+        "paired_speedup_median": 1.0223883025395497
+      }
+    }
+  ],
+  "raw_paired_runs": [
+    {
+      "pair": 1,
+      "order": [
+        "reference",
+        "current"
+      ],
+      "reference": {
+        "schema_version": 1,
+        "frames": 128,
+        "width": 280,
+        "height": 240,
+        "band_rows": 16,
+        "oracle_only": false,
+        "oracle_frames": 8,
+        "warmup_frames": 8,
+        "clock": "QueryPerformanceCounter",
+        "context_bytes": 73472,
+        "workloads": [
+          {
+            "id": "cube.texture.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "a931967ba9fb3aa5",
+            "geometry_us": 0.714063,
+            "raster_us": 148.323436,
+            "total_us": 149.0375,
+            "prepared_triangles_mean": 6.0
+          },
+          {
+            "id": "cube.texture.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "90e4f87cbd16193d",
+            "geometry_us": 1.214843,
+            "raster_us": 147.364065,
+            "total_us": 148.578908,
+            "prepared_triangles_mean": 4.609375
+          },
+          {
+            "id": "cube.lit.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "a9329d366370add5",
+            "geometry_us": 0.65625,
+            "raster_us": 93.038281,
+            "total_us": 93.694531,
+            "prepared_triangles_mean": 6.0
+          },
+          {
+            "id": "cube.lit.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "079063d7f8252c96",
+            "geometry_us": 0.667969,
+            "raster_us": 88.944531,
+            "total_us": 89.6125,
+            "prepared_triangles_mean": 4.609375
+          },
+          {
+            "id": "cube.wire.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "cc0ecd3ee6e58d45",
+            "geometry_us": 0.633594,
+            "raster_us": 99.113281,
+            "total_us": 99.746875,
+            "prepared_triangles_mean": 6.0
+          },
+          {
+            "id": "cube.wire.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "7e84b9b6ebcf468f",
+            "geometry_us": 0.594533,
+            "raster_us": 91.302342,
+            "total_us": 91.896875,
+            "prepared_triangles_mean": 4.609375
+          },
+          {
+            "id": "torus.texture.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "4e39e0d9491fcfa5",
+            "geometry_us": 5.141403,
+            "raster_us": 145.94766,
+            "total_us": 151.089062,
+            "prepared_triangles_mean": 96.0
+          },
+          {
+            "id": "torus.texture.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "27f1aa478298ac15",
+            "geometry_us": 6.116407,
+            "raster_us": 161.664063,
+            "total_us": 167.78047,
+            "prepared_triangles_mean": 86.9375
+          },
+          {
+            "id": "torus.lit.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "ebc65d01a2eb7695",
+            "geometry_us": 4.975779,
+            "raster_us": 106.616408,
+            "total_us": 111.592187,
+            "prepared_triangles_mean": 96.0
+          },
+          {
+            "id": "torus.lit.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "dbf34be231da56d3",
+            "geometry_us": 4.590624,
+            "raster_us": 111.114064,
+            "total_us": 115.704687,
+            "prepared_triangles_mean": 86.9375
+          },
+          {
+            "id": "torus.wire.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "6f6fbd9f99f8ecc5",
+            "geometry_us": 5.506256,
+            "raster_us": 117.222651,
+            "total_us": 122.728906,
+            "prepared_triangles_mean": 96.0
+          },
+          {
+            "id": "torus.wire.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "3b4ca2e4f05c7442",
+            "geometry_us": 5.253122,
+            "raster_us": 125.303909,
+            "total_us": 130.557031,
+            "prepared_triangles_mean": 86.9375
+          },
+          {
+            "id": "maze1.mixed.fixed",
+            "level": 1,
+            "seed": 0,
+            "walls": 18,
+            "oracle_hash": "8b3c491108578935",
+            "geometry_us": 18.585934,
+            "raster_us": 470.064065,
+            "total_us": 488.649999,
+            "prepared_triangles_mean": 257.0
+          },
+          {
+            "id": "maze1.mixed.changing",
+            "level": 1,
+            "seed": 0,
+            "walls": 18,
+            "oracle_hash": "add2a4c3da2c273e",
+            "geometry_us": 18.825,
+            "raster_us": 499.004686,
+            "total_us": 517.829686,
+            "prepared_triangles_mean": 258.390625
+          },
+          {
+            "id": "maze2.mixed.fixed",
+            "level": 2,
+            "seed": 127880910,
+            "walls": 17,
+            "oracle_hash": "aafbe8c759e46c05",
+            "geometry_us": 18.265623,
+            "raster_us": 501.561721,
+            "total_us": 519.827343,
+            "prepared_triangles_mean": 249.0
+          },
+          {
+            "id": "maze2.mixed.changing",
+            "level": 2,
+            "seed": 127880910,
+            "walls": 17,
+            "oracle_hash": "6fd0a0534760a2cc",
+            "geometry_us": 18.143749,
+            "raster_us": 501.686719,
+            "total_us": 519.830468,
+            "prepared_triangles_mean": 248.84375
+          },
+          {
+            "id": "maze17.mixed.fixed",
+            "level": 17,
+            "seed": 1562426607,
+            "walls": 18,
+            "oracle_hash": "1a4ce2cb6ad1e325",
+            "geometry_us": 20.900782,
+            "raster_us": 533.230468,
+            "total_us": 554.13125,
+            "prepared_triangles_mean": 257.0
+          },
+          {
+            "id": "maze17.mixed.changing",
+            "level": 17,
+            "seed": 1562426607,
+            "walls": 18,
+            "oracle_hash": "36de93eda33289f1",
+            "geometry_us": 18.266404,
+            "raster_us": 499.024221,
+            "total_us": 517.290625,
+            "prepared_triangles_mean": 258.59375
+          },
+          {
+            "id": "maze9999.mixed.fixed",
+            "level": 9999,
+            "seed": 3905316334,
+            "walls": 16,
+            "oracle_hash": "af059f8c9c9bcce5",
+            "geometry_us": 20.138281,
+            "raster_us": 506.935158,
+            "total_us": 527.073439,
+            "prepared_triangles_mean": 241.0
+          },
+          {
+            "id": "maze9999.mixed.changing",
+            "level": 9999,
+            "seed": 3905316334,
+            "walls": 16,
+            "oracle_hash": "4e3f6fd751d5b20f",
+            "geometry_us": 17.17344,
+            "raster_us": 475.949997,
+            "total_us": 493.123437,
+            "prepared_triangles_mean": 242.21875
+          }
+        ]
+      },
+      "current": {
+        "schema_version": 1,
+        "frames": 128,
+        "width": 280,
+        "height": 240,
+        "band_rows": 16,
+        "oracle_only": false,
+        "oracle_frames": 8,
+        "warmup_frames": 8,
+        "clock": "QueryPerformanceCounter",
+        "context_bytes": 73472,
+        "workloads": [
+          {
+            "id": "cube.texture.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "a931967ba9fb3aa5",
+            "geometry_us": 0.606251,
+            "raster_us": 153.010936,
+            "total_us": 153.617187,
+            "prepared_triangles_mean": 6.0
+          },
+          {
+            "id": "cube.texture.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "90e4f87cbd16193d",
+            "geometry_us": 0.603124,
+            "raster_us": 140.70469,
+            "total_us": 141.307813,
+            "prepared_triangles_mean": 4.609375
+          },
+          {
+            "id": "cube.lit.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "a9329d366370add5",
+            "geometry_us": 0.528908,
+            "raster_us": 84.087499,
+            "total_us": 84.616406,
+            "prepared_triangles_mean": 6.0
+          },
+          {
+            "id": "cube.lit.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "079063d7f8252c96",
+            "geometry_us": 0.542188,
+            "raster_us": 79.511718,
+            "total_us": 80.053906,
+            "prepared_triangles_mean": 4.609375
+          },
+          {
+            "id": "cube.wire.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "cc0ecd3ee6e58d45",
+            "geometry_us": 0.707031,
+            "raster_us": 99.749218,
+            "total_us": 100.45625,
+            "prepared_triangles_mean": 6.0
+          },
+          {
+            "id": "cube.wire.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "7e84b9b6ebcf468f",
+            "geometry_us": 0.698437,
+            "raster_us": 92.978125,
+            "total_us": 93.676562,
+            "prepared_triangles_mean": 4.609375
+          },
+          {
+            "id": "torus.texture.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "4e39e0d9491fcfa5",
+            "geometry_us": 5.567968,
+            "raster_us": 157.894532,
+            "total_us": 163.4625,
+            "prepared_triangles_mean": 96.0
+          },
+          {
+            "id": "torus.texture.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "27f1aa478298ac15",
+            "geometry_us": 5.105466,
+            "raster_us": 154.171096,
+            "total_us": 159.276562,
+            "prepared_triangles_mean": 86.9375
+          },
+          {
+            "id": "torus.lit.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "ebc65d01a2eb7695",
+            "geometry_us": 7.031244,
+            "raster_us": 120.313287,
+            "total_us": 127.344531,
+            "prepared_triangles_mean": 96.0
+          },
+          {
+            "id": "torus.lit.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "dbf34be231da56d3",
+            "geometry_us": 5.865626,
+            "raster_us": 126.443749,
+            "total_us": 132.309375,
+            "prepared_triangles_mean": 86.9375
+          },
+          {
+            "id": "torus.wire.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "6f6fbd9f99f8ecc5",
+            "geometry_us": 7.08672,
+            "raster_us": 136.251561,
+            "total_us": 143.338282,
+            "prepared_triangles_mean": 96.0
+          },
+          {
+            "id": "torus.wire.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "3b4ca2e4f05c7442",
+            "geometry_us": 7.043749,
+            "raster_us": 148.985939,
+            "total_us": 156.029688,
+            "prepared_triangles_mean": 86.9375
+          },
+          {
+            "id": "maze1.mixed.fixed",
+            "level": 1,
+            "seed": 0,
+            "walls": 18,
+            "oracle_hash": "8b3c491108578935",
+            "geometry_us": 21.939844,
+            "raster_us": 524.739063,
+            "total_us": 546.678907,
+            "prepared_triangles_mean": 257.0
+          },
+          {
+            "id": "maze1.mixed.changing",
+            "level": 1,
+            "seed": 0,
+            "walls": 18,
+            "oracle_hash": "add2a4c3da2c273e",
+            "geometry_us": 18.803124,
+            "raster_us": 486.458594,
+            "total_us": 505.261718,
+            "prepared_triangles_mean": 258.390625
+          },
+          {
+            "id": "maze2.mixed.fixed",
+            "level": 2,
+            "seed": 127880910,
+            "walls": 17,
+            "oracle_hash": "aafbe8c759e46c05",
+            "geometry_us": 19.616409,
+            "raster_us": 501.249217,
+            "total_us": 520.865626,
+            "prepared_triangles_mean": 249.0
+          },
+          {
+            "id": "maze2.mixed.changing",
+            "level": 2,
+            "seed": 127880910,
+            "walls": 17,
+            "oracle_hash": "6fd0a0534760a2cc",
+            "geometry_us": 19.633591,
+            "raster_us": 515.578129,
+            "total_us": 535.21172,
+            "prepared_triangles_mean": 248.84375
+          },
+          {
+            "id": "maze17.mixed.fixed",
+            "level": 17,
+            "seed": 1562426607,
+            "walls": 18,
+            "oracle_hash": "1a4ce2cb6ad1e325",
+            "geometry_us": 18.977345,
+            "raster_us": 484.721093,
+            "total_us": 503.698438,
+            "prepared_triangles_mean": 257.0
+          },
+          {
+            "id": "maze17.mixed.changing",
+            "level": 17,
+            "seed": 1562426607,
+            "walls": 18,
+            "oracle_hash": "36de93eda33289f1",
+            "geometry_us": 18.90781,
+            "raster_us": 498.953909,
+            "total_us": 517.861719,
+            "prepared_triangles_mean": 258.59375
+          },
+          {
+            "id": "maze9999.mixed.fixed",
+            "level": 9999,
+            "seed": 3905316334,
+            "walls": 16,
+            "oracle_hash": "af059f8c9c9bcce5",
+            "geometry_us": 17.239845,
+            "raster_us": 460.689841,
+            "total_us": 477.929686,
+            "prepared_triangles_mean": 241.0
+          },
+          {
+            "id": "maze9999.mixed.changing",
+            "level": 9999,
+            "seed": 3905316334,
+            "walls": 16,
+            "oracle_hash": "4e3f6fd751d5b20f",
+            "geometry_us": 16.947656,
+            "raster_us": 465.377344,
+            "total_us": 482.324999,
+            "prepared_triangles_mean": 242.21875
+          }
+        ]
+      }
+    },
+    {
+      "pair": 2,
+      "order": [
+        "current",
+        "reference"
+      ],
+      "reference": {
+        "schema_version": 1,
+        "frames": 128,
+        "width": 280,
+        "height": 240,
+        "band_rows": 16,
+        "oracle_only": false,
+        "oracle_frames": 8,
+        "warmup_frames": 8,
+        "clock": "QueryPerformanceCounter",
+        "context_bytes": 73472,
+        "workloads": [
+          {
+            "id": "cube.texture.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "a931967ba9fb3aa5",
+            "geometry_us": 5.221099,
+            "raster_us": 516.002346,
+            "total_us": 521.223445,
+            "prepared_triangles_mean": 6.0
+          },
+          {
+            "id": "cube.texture.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "90e4f87cbd16193d",
+            "geometry_us": 2.046875,
+            "raster_us": 345.115625,
+            "total_us": 347.1625,
+            "prepared_triangles_mean": 4.609375
+          },
+          {
+            "id": "cube.lit.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "a9329d366370add5",
+            "geometry_us": 1.482814,
+            "raster_us": 153.248436,
+            "total_us": 154.73125,
+            "prepared_triangles_mean": 6.0
+          },
+          {
+            "id": "cube.lit.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "079063d7f8252c96",
+            "geometry_us": 0.775783,
+            "raster_us": 128.059374,
+            "total_us": 128.835157,
+            "prepared_triangles_mean": 4.609375
+          },
+          {
+            "id": "cube.wire.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "cc0ecd3ee6e58d45",
+            "geometry_us": 0.671877,
+            "raster_us": 110.485937,
+            "total_us": 111.157814,
+            "prepared_triangles_mean": 6.0
+          },
+          {
+            "id": "cube.wire.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "7e84b9b6ebcf468f",
+            "geometry_us": 0.592188,
+            "raster_us": 95.222656,
+            "total_us": 95.814844,
+            "prepared_triangles_mean": 4.609375
+          },
+          {
+            "id": "torus.texture.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "4e39e0d9491fcfa5",
+            "geometry_us": 5.147657,
+            "raster_us": 142.889062,
+            "total_us": 148.036719,
+            "prepared_triangles_mean": 96.0
+          },
+          {
+            "id": "torus.texture.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "27f1aa478298ac15",
+            "geometry_us": 4.977345,
+            "raster_us": 151.128123,
+            "total_us": 156.105468,
+            "prepared_triangles_mean": 86.9375
+          },
+          {
+            "id": "torus.lit.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "ebc65d01a2eb7695",
+            "geometry_us": 5.190628,
+            "raster_us": 105.333593,
+            "total_us": 110.52422,
+            "prepared_triangles_mean": 96.0
+          },
+          {
+            "id": "torus.lit.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "dbf34be231da56d3",
+            "geometry_us": 4.746871,
+            "raster_us": 116.237504,
+            "total_us": 120.984375,
+            "prepared_triangles_mean": 86.9375
+          },
+          {
+            "id": "torus.wire.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "6f6fbd9f99f8ecc5",
+            "geometry_us": 5.699998,
+            "raster_us": 115.375783,
+            "total_us": 121.07578,
+            "prepared_triangles_mean": 96.0
+          },
+          {
+            "id": "torus.wire.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "3b4ca2e4f05c7442",
+            "geometry_us": 5.291405,
+            "raster_us": 124.80547,
+            "total_us": 130.096876,
+            "prepared_triangles_mean": 86.9375
+          },
+          {
+            "id": "maze1.mixed.fixed",
+            "level": 1,
+            "seed": 0,
+            "walls": 18,
+            "oracle_hash": "8b3c491108578935",
+            "geometry_us": 18.928124,
+            "raster_us": 481.926563,
+            "total_us": 500.854687,
+            "prepared_triangles_mean": 257.0
+          },
+          {
+            "id": "maze1.mixed.changing",
+            "level": 1,
+            "seed": 0,
+            "walls": 18,
+            "oracle_hash": "add2a4c3da2c273e",
+            "geometry_us": 21.209371,
+            "raster_us": 551.270315,
+            "total_us": 572.479686,
+            "prepared_triangles_mean": 258.390625
+          },
+          {
+            "id": "maze2.mixed.fixed",
+            "level": 2,
+            "seed": 127880910,
+            "walls": 17,
+            "oracle_hash": "aafbe8c759e46c05",
+            "geometry_us": 19.546877,
+            "raster_us": 506.612498,
+            "total_us": 526.159375,
+            "prepared_triangles_mean": 249.0
+          },
+          {
+            "id": "maze2.mixed.changing",
+            "level": 2,
+            "seed": 127880910,
+            "walls": 17,
+            "oracle_hash": "6fd0a0534760a2cc",
+            "geometry_us": 18.560934,
+            "raster_us": 518.359378,
+            "total_us": 536.920311,
+            "prepared_triangles_mean": 248.84375
+          },
+          {
+            "id": "maze17.mixed.fixed",
+            "level": 17,
+            "seed": 1562426607,
+            "walls": 18,
+            "oracle_hash": "1a4ce2cb6ad1e325",
+            "geometry_us": 17.895313,
+            "raster_us": 480.491406,
+            "total_us": 498.386719,
+            "prepared_triangles_mean": 257.0
+          },
+          {
+            "id": "maze17.mixed.changing",
+            "level": 17,
+            "seed": 1562426607,
+            "walls": 18,
+            "oracle_hash": "36de93eda33289f1",
+            "geometry_us": 19.389843,
+            "raster_us": 516.144532,
+            "total_us": 535.534375,
+            "prepared_triangles_mean": 258.59375
+          },
+          {
+            "id": "maze9999.mixed.fixed",
+            "level": 9999,
+            "seed": 3905316334,
+            "walls": 16,
+            "oracle_hash": "af059f8c9c9bcce5",
+            "geometry_us": 22.196872,
+            "raster_us": 564.150785,
+            "total_us": 586.347656,
+            "prepared_triangles_mean": 241.0
+          },
+          {
+            "id": "maze9999.mixed.changing",
+            "level": 9999,
+            "seed": 3905316334,
+            "walls": 16,
+            "oracle_hash": "4e3f6fd751d5b20f",
+            "geometry_us": 23.932032,
+            "raster_us": 601.317968,
+            "total_us": 625.249999,
+            "prepared_triangles_mean": 242.21875
+          }
+        ]
+      },
+      "current": {
+        "schema_version": 1,
+        "frames": 128,
+        "width": 280,
+        "height": 240,
+        "band_rows": 16,
+        "oracle_only": false,
+        "oracle_frames": 8,
+        "warmup_frames": 8,
+        "clock": "QueryPerformanceCounter",
+        "context_bytes": 73472,
+        "workloads": [
+          {
+            "id": "cube.texture.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "a931967ba9fb3aa5",
+            "geometry_us": 0.64375,
+            "raster_us": 153.165624,
+            "total_us": 153.809375,
+            "prepared_triangles_mean": 6.0
+          },
+          {
+            "id": "cube.texture.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "90e4f87cbd16193d",
+            "geometry_us": 0.881249,
+            "raster_us": 151.151563,
+            "total_us": 152.032812,
+            "prepared_triangles_mean": 4.609375
+          },
+          {
+            "id": "cube.lit.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "a9329d366370add5",
+            "geometry_us": 0.915623,
+            "raster_us": 102.308597,
+            "total_us": 103.22422,
+            "prepared_triangles_mean": 6.0
+          },
+          {
+            "id": "cube.lit.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "079063d7f8252c96",
+            "geometry_us": 0.679687,
+            "raster_us": 84.074219,
+            "total_us": 84.753905,
+            "prepared_triangles_mean": 4.609375
+          },
+          {
+            "id": "cube.wire.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "cc0ecd3ee6e58d45",
+            "geometry_us": 0.708595,
+            "raster_us": 96.230468,
+            "total_us": 96.939063,
+            "prepared_triangles_mean": 6.0
+          },
+          {
+            "id": "cube.wire.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "7e84b9b6ebcf468f",
+            "geometry_us": 1.795313,
+            "raster_us": 93.233594,
+            "total_us": 95.028907,
+            "prepared_triangles_mean": 4.609375
+          },
+          {
+            "id": "torus.texture.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "4e39e0d9491fcfa5",
+            "geometry_us": 5.418748,
+            "raster_us": 148.800783,
+            "total_us": 154.219531,
+            "prepared_triangles_mean": 96.0
+          },
+          {
+            "id": "torus.texture.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "27f1aa478298ac15",
+            "geometry_us": 4.98906,
+            "raster_us": 152.87422,
+            "total_us": 157.863281,
+            "prepared_triangles_mean": 86.9375
+          },
+          {
+            "id": "torus.lit.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "ebc65d01a2eb7695",
+            "geometry_us": 5.082033,
+            "raster_us": 110.971093,
+            "total_us": 116.053126,
+            "prepared_triangles_mean": 96.0
+          },
+          {
+            "id": "torus.lit.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "dbf34be231da56d3",
+            "geometry_us": 4.724999,
+            "raster_us": 111.864846,
+            "total_us": 116.589844,
+            "prepared_triangles_mean": 86.9375
+          },
+          {
+            "id": "torus.wire.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "6f6fbd9f99f8ecc5",
+            "geometry_us": 5.399215,
+            "raster_us": 116.593753,
+            "total_us": 121.992969,
+            "prepared_triangles_mean": 96.0
+          },
+          {
+            "id": "torus.wire.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "3b4ca2e4f05c7442",
+            "geometry_us": 5.455468,
+            "raster_us": 127.328126,
+            "total_us": 132.783593,
+            "prepared_triangles_mean": 86.9375
+          },
+          {
+            "id": "maze1.mixed.fixed",
+            "level": 1,
+            "seed": 0,
+            "walls": 18,
+            "oracle_hash": "8b3c491108578935",
+            "geometry_us": 19.257028,
+            "raster_us": 486.043753,
+            "total_us": 505.300781,
+            "prepared_triangles_mean": 257.0
+          },
+          {
+            "id": "maze1.mixed.changing",
+            "level": 1,
+            "seed": 0,
+            "walls": 18,
+            "oracle_hash": "add2a4c3da2c273e",
+            "geometry_us": 20.633597,
+            "raster_us": 529.672652,
+            "total_us": 550.306249,
+            "prepared_triangles_mean": 258.390625
+          },
+          {
+            "id": "maze2.mixed.fixed",
+            "level": 2,
+            "seed": 127880910,
+            "walls": 17,
+            "oracle_hash": "aafbe8c759e46c05",
+            "geometry_us": 22.325778,
+            "raster_us": 544.462503,
+            "total_us": 566.78828,
+            "prepared_triangles_mean": 249.0
+          },
+          {
+            "id": "maze2.mixed.changing",
+            "level": 2,
+            "seed": 127880910,
+            "walls": 17,
+            "oracle_hash": "6fd0a0534760a2cc",
+            "geometry_us": 19.453124,
+            "raster_us": 504.642188,
+            "total_us": 524.095311,
+            "prepared_triangles_mean": 248.84375
+          },
+          {
+            "id": "maze17.mixed.fixed",
+            "level": 17,
+            "seed": 1562426607,
+            "walls": 18,
+            "oracle_hash": "1a4ce2cb6ad1e325",
+            "geometry_us": 20.893752,
+            "raster_us": 524.295311,
+            "total_us": 545.189063,
+            "prepared_triangles_mean": 257.0
+          },
+          {
+            "id": "maze17.mixed.changing",
+            "level": 17,
+            "seed": 1562426607,
+            "walls": 18,
+            "oracle_hash": "36de93eda33289f1",
+            "geometry_us": 24.117187,
+            "raster_us": 611.846875,
+            "total_us": 635.964062,
+            "prepared_triangles_mean": 258.59375
+          },
+          {
+            "id": "maze9999.mixed.fixed",
+            "level": 9999,
+            "seed": 3905316334,
+            "walls": 16,
+            "oracle_hash": "af059f8c9c9bcce5",
+            "geometry_us": 26.734375,
+            "raster_us": 636.527346,
+            "total_us": 663.261721,
+            "prepared_triangles_mean": 241.0
+          },
+          {
+            "id": "maze9999.mixed.changing",
+            "level": 9999,
+            "seed": 3905316334,
+            "walls": 16,
+            "oracle_hash": "4e3f6fd751d5b20f",
+            "geometry_us": 52.215626,
+            "raster_us": 1289.585151,
+            "total_us": 1341.800777,
+            "prepared_triangles_mean": 242.21875
+          }
+        ]
+      }
+    },
+    {
+      "pair": 3,
+      "order": [
+        "reference",
+        "current"
+      ],
+      "reference": {
+        "schema_version": 1,
+        "frames": 128,
+        "width": 280,
+        "height": 240,
+        "band_rows": 16,
+        "oracle_only": false,
+        "oracle_frames": 8,
+        "warmup_frames": 8,
+        "clock": "QueryPerformanceCounter",
+        "context_bytes": 73472,
+        "workloads": [
+          {
+            "id": "cube.texture.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "a931967ba9fb3aa5",
+            "geometry_us": 0.907812,
+            "raster_us": 204.82422,
+            "total_us": 205.732032,
+            "prepared_triangles_mean": 6.0
+          },
+          {
+            "id": "cube.texture.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "90e4f87cbd16193d",
+            "geometry_us": 0.738282,
+            "raster_us": 159.721093,
+            "total_us": 160.459374,
+            "prepared_triangles_mean": 4.609375
+          },
+          {
+            "id": "cube.lit.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "a9329d366370add5",
+            "geometry_us": 0.819534,
+            "raster_us": 98.013279,
+            "total_us": 98.832813,
+            "prepared_triangles_mean": 6.0
+          },
+          {
+            "id": "cube.lit.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "079063d7f8252c96",
+            "geometry_us": 0.682034,
+            "raster_us": 90.121091,
+            "total_us": 90.803124,
+            "prepared_triangles_mean": 4.609375
+          },
+          {
+            "id": "cube.wire.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "cc0ecd3ee6e58d45",
+            "geometry_us": 0.886719,
+            "raster_us": 117.978124,
+            "total_us": 118.864843,
+            "prepared_triangles_mean": 6.0
+          },
+          {
+            "id": "cube.wire.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "7e84b9b6ebcf468f",
+            "geometry_us": 0.663283,
+            "raster_us": 104.811718,
+            "total_us": 105.475001,
+            "prepared_triangles_mean": 4.609375
+          },
+          {
+            "id": "torus.texture.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "4e39e0d9491fcfa5",
+            "geometry_us": 5.453904,
+            "raster_us": 148.848439,
+            "total_us": 154.302343,
+            "prepared_triangles_mean": 96.0
+          },
+          {
+            "id": "torus.texture.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "27f1aa478298ac15",
+            "geometry_us": 4.700778,
+            "raster_us": 147.185161,
+            "total_us": 151.885939,
+            "prepared_triangles_mean": 86.9375
+          },
+          {
+            "id": "torus.lit.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "ebc65d01a2eb7695",
+            "geometry_us": 5.170309,
+            "raster_us": 103.775784,
+            "total_us": 108.946093,
+            "prepared_triangles_mean": 96.0
+          },
+          {
+            "id": "torus.lit.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "dbf34be231da56d3",
+            "geometry_us": 5.05703,
+            "raster_us": 117.854688,
+            "total_us": 122.911718,
+            "prepared_triangles_mean": 86.9375
+          },
+          {
+            "id": "torus.wire.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "6f6fbd9f99f8ecc5",
+            "geometry_us": 5.818747,
+            "raster_us": 118.364064,
+            "total_us": 124.182812,
+            "prepared_triangles_mean": 96.0
+          },
+          {
+            "id": "torus.wire.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "3b4ca2e4f05c7442",
+            "geometry_us": 5.101563,
+            "raster_us": 120.823437,
+            "total_us": 125.925,
+            "prepared_triangles_mean": 86.9375
+          },
+          {
+            "id": "maze1.mixed.fixed",
+            "level": 1,
+            "seed": 0,
+            "walls": 18,
+            "oracle_hash": "8b3c491108578935",
+            "geometry_us": 19.507814,
+            "raster_us": 498.032811,
+            "total_us": 517.540625,
+            "prepared_triangles_mean": 257.0
+          },
+          {
+            "id": "maze1.mixed.changing",
+            "level": 1,
+            "seed": 0,
+            "walls": 18,
+            "oracle_hash": "add2a4c3da2c273e",
+            "geometry_us": 18.654687,
+            "raster_us": 485.331251,
+            "total_us": 503.985938,
+            "prepared_triangles_mean": 258.390625
+          },
+          {
+            "id": "maze2.mixed.fixed",
+            "level": 2,
+            "seed": 127880910,
+            "walls": 17,
+            "oracle_hash": "aafbe8c759e46c05",
+            "geometry_us": 20.735937,
+            "raster_us": 517.971094,
+            "total_us": 538.707031,
+            "prepared_triangles_mean": 249.0
+          },
+          {
+            "id": "maze2.mixed.changing",
+            "level": 2,
+            "seed": 127880910,
+            "walls": 17,
+            "oracle_hash": "6fd0a0534760a2cc",
+            "geometry_us": 19.339063,
+            "raster_us": 521.15703,
+            "total_us": 540.496093,
+            "prepared_triangles_mean": 248.84375
+          },
+          {
+            "id": "maze17.mixed.fixed",
+            "level": 17,
+            "seed": 1562426607,
+            "walls": 18,
+            "oracle_hash": "1a4ce2cb6ad1e325",
+            "geometry_us": 20.521093,
+            "raster_us": 524.628907,
+            "total_us": 545.15,
+            "prepared_triangles_mean": 257.0
+          },
+          {
+            "id": "maze17.mixed.changing",
+            "level": 17,
+            "seed": 1562426607,
+            "walls": 18,
+            "oracle_hash": "36de93eda33289f1",
+            "geometry_us": 17.997652,
+            "raster_us": 499.253129,
+            "total_us": 517.250781,
+            "prepared_triangles_mean": 258.59375
+          },
+          {
+            "id": "maze9999.mixed.fixed",
+            "level": 9999,
+            "seed": 3905316334,
+            "walls": 16,
+            "oracle_hash": "af059f8c9c9bcce5",
+            "geometry_us": 17.88672,
+            "raster_us": 464.062499,
+            "total_us": 481.949219,
+            "prepared_triangles_mean": 241.0
+          },
+          {
+            "id": "maze9999.mixed.changing",
+            "level": 9999,
+            "seed": 3905316334,
+            "walls": 16,
+            "oracle_hash": "4e3f6fd751d5b20f",
+            "geometry_us": 18.799221,
+            "raster_us": 499.28906,
+            "total_us": 518.088281,
+            "prepared_triangles_mean": 242.21875
+          }
+        ]
+      },
+      "current": {
+        "schema_version": 1,
+        "frames": 128,
+        "width": 280,
+        "height": 240,
+        "band_rows": 16,
+        "oracle_only": false,
+        "oracle_frames": 8,
+        "warmup_frames": 8,
+        "clock": "QueryPerformanceCounter",
+        "context_bytes": 73472,
+        "workloads": [
+          {
+            "id": "cube.texture.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "a931967ba9fb3aa5",
+            "geometry_us": 0.567186,
+            "raster_us": 149.206252,
+            "total_us": 149.773438,
+            "prepared_triangles_mean": 6.0
+          },
+          {
+            "id": "cube.texture.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "90e4f87cbd16193d",
+            "geometry_us": 0.760155,
+            "raster_us": 143.458595,
+            "total_us": 144.21875,
+            "prepared_triangles_mean": 4.609375
+          },
+          {
+            "id": "cube.lit.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "a9329d366370add5",
+            "geometry_us": 0.555469,
+            "raster_us": 83.638281,
+            "total_us": 84.19375,
+            "prepared_triangles_mean": 6.0
+          },
+          {
+            "id": "cube.lit.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "079063d7f8252c96",
+            "geometry_us": 0.654687,
+            "raster_us": 81.0375,
+            "total_us": 81.692187,
+            "prepared_triangles_mean": 4.609375
+          },
+          {
+            "id": "cube.wire.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "cc0ecd3ee6e58d45",
+            "geometry_us": 0.611718,
+            "raster_us": 96.386719,
+            "total_us": 96.998438,
+            "prepared_triangles_mean": 6.0
+          },
+          {
+            "id": "cube.wire.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "7e84b9b6ebcf468f",
+            "geometry_us": 0.65078,
+            "raster_us": 90.917189,
+            "total_us": 91.567969,
+            "prepared_triangles_mean": 4.609375
+          },
+          {
+            "id": "torus.texture.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "4e39e0d9491fcfa5",
+            "geometry_us": 4.992971,
+            "raster_us": 148.984373,
+            "total_us": 153.977344,
+            "prepared_triangles_mean": 96.0
+          },
+          {
+            "id": "torus.texture.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "27f1aa478298ac15",
+            "geometry_us": 6.722653,
+            "raster_us": 180.154692,
+            "total_us": 186.877346,
+            "prepared_triangles_mean": 86.9375
+          },
+          {
+            "id": "torus.lit.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "ebc65d01a2eb7695",
+            "geometry_us": 5.510939,
+            "raster_us": 118.655469,
+            "total_us": 124.166408,
+            "prepared_triangles_mean": 96.0
+          },
+          {
+            "id": "torus.lit.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "dbf34be231da56d3",
+            "geometry_us": 7.243745,
+            "raster_us": 150.562505,
+            "total_us": 157.806249,
+            "prepared_triangles_mean": 86.9375
+          },
+          {
+            "id": "torus.wire.fixed",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "6f6fbd9f99f8ecc5",
+            "geometry_us": 6.825004,
+            "raster_us": 143.185154,
+            "total_us": 150.010158,
+            "prepared_triangles_mean": 96.0
+          },
+          {
+            "id": "torus.wire.changing",
+            "level": 0,
+            "seed": 0,
+            "walls": 0,
+            "oracle_hash": "3b4ca2e4f05c7442",
+            "geometry_us": 6.572656,
+            "raster_us": 153.264843,
+            "total_us": 159.837499,
+            "prepared_triangles_mean": 86.9375
+          },
+          {
+            "id": "maze1.mixed.fixed",
+            "level": 1,
+            "seed": 0,
+            "walls": 18,
+            "oracle_hash": "8b3c491108578935",
+            "geometry_us": 20.388281,
+            "raster_us": 494.640625,
+            "total_us": 515.028907,
+            "prepared_triangles_mean": 257.0
+          },
+          {
+            "id": "maze1.mixed.changing",
+            "level": 1,
+            "seed": 0,
+            "walls": 18,
+            "oracle_hash": "add2a4c3da2c273e",
+            "geometry_us": 19.160153,
+            "raster_us": 485.803128,
+            "total_us": 504.963281,
+            "prepared_triangles_mean": 258.390625
+          },
+          {
+            "id": "maze2.mixed.fixed",
+            "level": 2,
+            "seed": 127880910,
+            "walls": 17,
+            "oracle_hash": "aafbe8c759e46c05",
+            "geometry_us": 22.322656,
+            "raster_us": 583.463282,
+            "total_us": 605.785938,
+            "prepared_triangles_mean": 249.0
+          },
+          {
+            "id": "maze2.mixed.changing",
+            "level": 2,
+            "seed": 127880910,
+            "walls": 17,
+            "oracle_hash": "6fd0a0534760a2cc",
+            "geometry_us": 23.558594,
+            "raster_us": 600.078124,
+            "total_us": 623.636719,
+            "prepared_triangles_mean": 248.84375
+          },
+          {
+            "id": "maze17.mixed.fixed",
+            "level": 17,
+            "seed": 1562426607,
+            "walls": 18,
+            "oracle_hash": "1a4ce2cb6ad1e325",
+            "geometry_us": 20.317189,
+            "raster_us": 505.208593,
+            "total_us": 525.525782,
+            "prepared_triangles_mean": 257.0
+          },
+          {
+            "id": "maze17.mixed.changing",
+            "level": 17,
+            "seed": 1562426607,
+            "walls": 18,
+            "oracle_hash": "36de93eda33289f1",
+            "geometry_us": 19.185938,
+            "raster_us": 503.351563,
+            "total_us": 522.537501,
+            "prepared_triangles_mean": 258.59375
+          },
+          {
+            "id": "maze9999.mixed.fixed",
+            "level": 9999,
+            "seed": 3905316334,
+            "walls": 16,
+            "oracle_hash": "af059f8c9c9bcce5",
+            "geometry_us": 19.579688,
+            "raster_us": 497.410938,
+            "total_us": 516.990626,
+            "prepared_triangles_mean": 241.0
+          },
+          {
+            "id": "maze9999.mixed.changing",
+            "level": 9999,
+            "seed": 3905316334,
+            "walls": 16,
+            "oracle_hash": "4e3f6fd751d5b20f",
+            "geometry_us": 17.639841,
+            "raster_us": 479.70469,
+            "total_us": 497.344532,
+            "prepared_triangles_mean": 242.21875
+          }
+        ]
+      }
+    }
+  ]
+}

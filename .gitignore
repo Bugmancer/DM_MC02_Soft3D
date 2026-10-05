@@ -1,0 +1,13 @@
+# Keil build output and local workspace state
+/MDK-ARM/DM_MC02_Soft3D/
+/MDK-ARM/build.log
+/MDK-ARM/*.lst
+*.uvguix.*
+
+# Host test output and temporary files
+*.exe
+*.ppm
+*.bak
+*.tmp
+Thumbs.db
+.DS_Store
